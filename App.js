@@ -32,7 +32,7 @@ export default function App() {
 
       <View style={{ flexDirection: "row", width: "100%", paddingHorizontal: 30, marginVertical: 30}}>
         <View>
-          <Text style={{color: "#FFF", fontWeight: "600", fontSize: 25}}>Factures</Text>
+          <Text style={{color: "#FFF", fontWeight: "600", fontSize: 25}}>Facturess</Text>
           <Text style={{color: "#FFF", fontWeight: "300", fontSize: 17, opacity: 0.8}}>{DATA.length} Factures</Text>
         </View>
         <TouchableOpacity style={{flexDirection: "row", alignItems: "center", marginLeft: "auto", marginRight: 13}}>
