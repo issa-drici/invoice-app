@@ -45,6 +45,7 @@ export default function Home({ navigation }) {
               <Status item={item} />
             </View>
           </TouchableOpacity>)}
+          keyExtractor={item => item.orderNo}
       />
       <StatusBar style="auto" />
     </View>

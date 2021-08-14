@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, Image, SafeAreaView, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -11,6 +11,11 @@ const Stack = createStackNavigator()
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#FFF"
+        barStyle="light-content"
+        />
       <View style={styles.header}>
         <View style={styles.logo}>
           <View style={{ height: "50%", backgroundColor: "#9278ff",  borderTopLeftRadius: 25, borderBottomRightRadius: 25}}></View>

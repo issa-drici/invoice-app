@@ -17,7 +17,7 @@ const DATA = [
       invoiceDate: "13 Juillet 2021",
       dueDate: "14 Août 2021"
     },
-    description: "Graphic Design",
+    description: "Design Web",
     items: [
       {
         name: "Banner Design",
@@ -65,7 +65,7 @@ const DATA = [
       }
     ],
     totalPrice: 43.51,
-    status: "paid"
+    status: "pending"
   },
   {
     orderNo: "MX6544",
@@ -99,7 +99,7 @@ const DATA = [
       }
     ],
     totalPrice: 43.51,
-    status: "paid"
+    status: "draft"
   },
   {
     orderNo: "XC7495",
