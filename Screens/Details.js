@@ -18,7 +18,7 @@ const Details = ({ route, navigation}) => {
       </View>
       <View style={styles.card}>
         <Text style={{color: "#FFF", fontWeight: "600", fontSize: 16}}><Text style={{color: "#8790d5"}}>#</Text>{invoice.orderNo}</Text>
-        <Text style={{color: "#FFF", fontWeight: "400", fontSize: 16, opacity: 0.8, marginBottom: 25}}>{invoice.description}</Text>
+        <Text style={{color: "#7c5df9", fontWeight: "400", fontSize: 16, marginBottom: 25}}>{invoice.description}</Text>
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1.5}}>{invoice.billFrom.adress}</Text>
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billFrom.city}</Text>
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billFrom.postCode}</Text>
@@ -26,16 +26,16 @@ const Details = ({ route, navigation}) => {
         <View style={{width: "100%", flexDirection: "row", marginVertical: 25}}>
           <View style={{flex: 1}}>
             <View style={{ marginBottom: 25}}>
-              <Text style={{ color: "#FFF", fontWeight: "600", fontSize: 16, opacity: 0.8, marginBottom: 10}}>Date de la Facture</Text>
+              <Text style={{ color: "#7c5df9", fontWeight: "600", fontSize: 16,  marginBottom: 3}}>Date de la Facture</Text>
               <Text style={{color: "#FFF", fontWeight: "700", fontSize: 19, marginTop: 5}}>{invoice.billTo.invoiceDate}</Text>
             </View>
             <View>
-              <Text style={{ color: "#FFF", fontWeight: "600", fontSize: 16, opacity: 0.8, marginBottom: 10}}>Date de Paiement</Text>
+              <Text style={{ color: "#7c5df9", fontWeight: "600", fontSize: 16, marginBottom: 3}}>Date de Paiement</Text>
               <Text style={{color: "#FFF", fontWeight: "700", fontSize: 19, marginTop: 5}}>{invoice.billTo.dueDate}</Text>
             </View>
           </View>
           <View style={{ flex: 1}}>
-            <Text style={{ color: "#FFF", fontWeight: "600", fontSize: 16, opacity: 0.8}}>Facturé à</Text>
+            <Text style={{ color: "#7c5df9", fontWeight: "600", fontSize: 16}}>Facturé à</Text>
             <Text style={{color: "#FFF", fontWeight: "700", fontSize: 19, marginVertical: 10}}>{invoice.billTo.name}</Text>
             <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1.5}}>{invoice.billTo.adress}</Text>
             <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1.5}}>{invoice.billTo.city}</Text>
@@ -43,56 +43,30 @@ const Details = ({ route, navigation}) => {
             <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1.5}}>{invoice.billTo.country}</Text>
           </View>
         </View>
-        <Text style={{ color: "#FFF", fontWeight: "600", fontSize: 16, opacity: 0.8}}>Email</Text>
+        <Text style={{ color: "#7c5df9", fontWeight: "600", fontSize: 16}}>Email</Text>
         <Text style={{color: "#FFF", fontWeight: "700", fontSize: 19, marginTop: 5}}>{invoice.billTo.email}</Text>
-        <View>
-          <View>
-            
+        <View style={{ backgroundColor: "#141625", marginVertical: 40 }}>
+          <View style={{ padding: 30, paddingBottom: 10}}>
+            {invoice.items.map(item => (
+              <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 20}}>
+                <View>
+                  <Text style={{color: "#FFF", fontWeight: "700", fontSize: 15}}>{item.name}</Text>
+                  <Text style={{color: "#FFF", fontWeight: "700", fontSize: 15, opacity: 0.8}}>{item.quantity} x {item.price} €</Text>
+                </View>
+                <Text style={{color: "#FFF", fontWeight: "700", fontSize: 15}}>{item.price * item.quantity} €</Text>
+              </View>
+            )
+            )}
           </View>
-          <View style={{width: "100%", backgroundColor:"#FFF", borderBottomLeftRadius: 10, borderBottomRightRadius: 10, padding: 30, flexDirection: "row", justifyContent: "space-between"}}>
-            <Text>Total</Text>
-            <Text>556.00 €</Text>
+          <View style={{width: "100%", backgroundColor:"#FFF", borderBottomLeftRadius: 10, borderBottomRightRadius: 10, padding: 30, flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+            <Text style={{ color: "#1f213a", fontWeight: "600", fontSize: 16, opacity: 0.8}}>Total</Text>
+            <Text style={{ color: "#1f213a", fontWeight: "800", fontSize: 23}}>{invoice.totalPrice} €</Text>
           </View>
         </View>
       </View>
     </ScrollView>
   )
 }
-
-// {
-//   orderNo: "TY4526",
-//   billFrom: {
-//     adress: '6 rue Gustave Brindeau',
-//     city: "Le Havre",
-//     postCode: "76600",
-//     country: "France"
-//   },
-//   billTo: {
-//     name: "Issa Drici",
-//     email: "issa@test.com",
-//     adress: '6 rue Gustave Brindeau',
-//     city: "Le Havre",
-//     postCode: "76600",
-//     country: "France",
-//     invoiceDate: "13 Juillet 2021",
-//     dueDate: "14 Août 2021"
-//   },
-//   description: "Graphic Design",
-//   items: [
-//     {
-//       name: "Banner Design",
-//       quantity: 1,
-//       price: 156.00
-//     },
-//     {
-//       name: "Email Design",
-//       quantity: 2,
-//       price: 200.00
-//     }
-//   ],
-//   totalPrice: 43.51,
-//   status: "paid"
-// }
 
 export default Details
 
@@ -104,7 +78,8 @@ const styles = StyleSheet.create({
   },
   goBack: {
     flexDirection: "row",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    maxWidth: 95
   },
   arrowBack: {
     color: "#7c5df9",

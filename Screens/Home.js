@@ -17,7 +17,8 @@ export default function Home({ navigation }) {
           <Text style={styles.filterText}>Filtrer</Text>
           <Text style={styles.filterArrow}>›</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonNew}>
+        <TouchableOpacity style={styles.buttonNew} onPress={() => navigation.navigate('Form')
+            }>
           <View style={styles.circleButton}>
             <Text style={{color: "#7c5df9", fontWeight: "900", fontSize: 21}}>+</Text>
           </View>

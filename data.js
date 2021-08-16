@@ -58,11 +58,6 @@ const DATA = [
         quantity: 1,
         price: 156.00
       },
-      {
-        name: "Email Design",
-        quantity: 2,
-        price: 200.00
-      }
     ],
     totalPrice: 43.51,
     status: "pending"

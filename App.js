@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './Screens/Home'
 import Details from './Screens/Details';
+import Form from './Screens/Form';
 
 const Stack = createStackNavigator()
 
@@ -34,7 +35,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{title:"Accueil", headerShown: false}} />
-          <Stack.Screen name="Details" component={Details} options={{title:"Accueil", headerShown: false}} />
+          <Stack.Screen name="Details" component={Details} options={{title:"Details", headerShown: false}} />
+          <Stack.Screen name="Form" component={Form} options={{title:"Formulaire", headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
       </SafeAreaView>
