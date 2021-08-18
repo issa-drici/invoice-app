@@ -1,17 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, ActivityIndicator, RefreshControl } from 'react-native';
 
 import Status from '../Components/Status';
-import DATA from '../data.js'
 
 export default function Home({ navigation }) {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchData = () => {
+    fetch("http://192.168.1.205:19002")
+    .then(res => res.json())
+    .then(results => {
+      setData(results)
+      setLoading(false)
+    }).catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <View style={{flex: 1, backgroundColor: '#141625'}}>
       <View style={styles.bar}>
         <View>
           <Text style={{color: "#FFF", fontWeight: "600", fontSize: 25}}>Factures</Text>
-          <Text style={{color: "#FFF", fontWeight: "300", fontSize: 17, opacity: 0.8}}>{DATA.length} Factures</Text>
+          <Text style={{color: "#FFF", fontWeight: "300", fontSize: 17, opacity: 0.8}}>{data.length} Factures</Text>
         </View>
         <TouchableOpacity style={styles.filter}>
           <Text style={styles.filterText}>Filtrer</Text>
@@ -25,10 +40,11 @@ export default function Home({ navigation }) {
           <Text style={{color: "#FFF", fontWeight: "700", fontSize: 17, marginLeft: 7}}>Nouveau</Text>
         </TouchableOpacity>
       </View>
-        
-      <FlatList
+      
+      {loading ? <ActivityIndicator size="large" color="#FFF"/> 
+      : <FlatList
         style={styles.listCards}
-        data={DATA}
+        data={data}
         renderItem={({item}) => (
           <TouchableOpacity style={styles.card} onPress={() =>  {
             let invoice = item
@@ -47,7 +63,13 @@ export default function Home({ navigation }) {
             </View>
           </TouchableOpacity>)}
           keyExtractor={item => item.orderNo}
-      />
+          onRefresh={() => fetchData()}
+          refreshing={loading}
+          refreshControl={<RefreshControl
+            tintColor="#FFF"
+            refreshing={loading}
+            onRefresh={() => fetchData()} />}
+      /> }
       <StatusBar style="auto" />
     </View>
   );

@@ -20,11 +20,13 @@ const DATA = [
     description: "Design Web",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
       },
       {
+        key: "5243",
         name: "Email Design",
         quantity: 2,
         price: 200.00
@@ -54,6 +56,7 @@ const DATA = [
     description: "Graphic Design",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
@@ -83,11 +86,13 @@ const DATA = [
     description: "Graphic Design",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
       },
       {
+        key: "5243",
         name: "Email Design",
         quantity: 2,
         price: 200.00
@@ -117,11 +122,13 @@ const DATA = [
     description: "Graphic Design",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
       },
       {
+        key: "5243",
         name: "Email Design",
         quantity: 2,
         price: 200.00
@@ -151,11 +158,13 @@ const DATA = [
     description: "Graphic Design",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
       },
       {
+        key: "5243",
         name: "Email Design",
         quantity: 2,
         price: 200.00
@@ -185,11 +194,13 @@ const DATA = [
     description: "Graphic Design",
     items: [
       {
+        key: "3452345",
         name: "Banner Design",
         quantity: 1,
         price: 156.00
       },
       {
+        key: "5243",
         name: "Email Design",
         quantity: 2,
         price: 200.00

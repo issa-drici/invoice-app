@@ -22,7 +22,7 @@ const Details = ({ route, navigation}) => {
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1.5}}>{invoice.billFrom.adress}</Text>
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billFrom.city}</Text>
         <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billFrom.postCode}</Text>
-        <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billTo.name}</Text>
+        <Text style={{color: "#FFF", fontWeight: "400", fontSize: 15, opacity: 0.8, marginVertical: 1}}>{invoice.billFrom.country}</Text>
         <View style={{width: "100%", flexDirection: "row", marginVertical: 25}}>
           <View style={{flex: 1}}>
             <View style={{ marginBottom: 25}}>
@@ -48,7 +48,7 @@ const Details = ({ route, navigation}) => {
         <View style={{ backgroundColor: "#141625", marginVertical: 40 }}>
           <View style={{ padding: 30, paddingBottom: 10}}>
             {invoice.items.map(item => (
-              <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 20}}>
+              <View key={item.key} style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 20}}>
                 <View>
                   <Text style={{color: "#FFF", fontWeight: "700", fontSize: 15}}>{item.name}</Text>
                   <Text style={{color: "#FFF", fontWeight: "700", fontSize: 15, opacity: 0.8}}>{item.quantity} x {item.price} €</Text>
